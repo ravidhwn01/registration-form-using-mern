@@ -8,25 +8,33 @@
 </head>
 <body>
 
-    {{>navbar}}
+    {{!-- {{>navbar}} --}}
     
     <!DOCTYPE html>
 <html>
 <body>
 
-<h2>HTML Forms</h2>
+<h2>My registration Form</h2>
+{{!-- i have to make  login and registration form --}}
 
-<form >
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="" placeholder="enter your first name" ><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="" placeholder="enter your last name" ><br>
-  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-  <label for="vehicle1"> male</label>
-  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-  <label for="vehicle2">female</label><br>
-  <input type="submit" value="Submit">
-</form> 
+<form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" name="gender" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">male</label>
+    <input type="checkbox" name="gender" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">female</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
 
 
