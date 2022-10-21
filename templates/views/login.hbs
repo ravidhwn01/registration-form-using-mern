@@ -7,17 +7,20 @@
    <title>login-form</title>
  </head>
  <body>
+    <form action="/login" method="post">
    <div>
-       <label htmlFor="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" />
+    
+       <input  id="email "  type="text" placeholder="Enter Email"  name="email" value="" />
       <br> <br>
-        <label htmlFor="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" />
+        
+        <input  id="password "  type="password" placeholder="Enter Password"  name="passward" value="" />
         <br> <br>
         <button type="submit" className="signupbtn">
            login
           </button>
+          <a href="/register"> <strong>create an account</strong> </a>
    </div>
+   </form>
  </body>
  </html>
  
