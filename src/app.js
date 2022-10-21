@@ -28,12 +28,41 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 app.post("/register", async (req, res) => {
- try {
-  console.log(res.body.fullname);
-  req.send(req.body.fullname);
- } catch (e) {
-  res.status(400).send(e)
- }
+  try {
+    // const user = new Register(req.body);
+    // const createUser = await user.save();
+    // res.status(201).send(createUser);
+    // console.log(req.body.fullname);
+    // console.log(req.body.email);
+    // console.log(req.body.passward);
+    // console.log(req.body.passwordrepeat);
+    // res.send(req.body.fullname);
+    // res.send(req.body.email);
+    // res.send(req.body.passward);
+    // res.send(req.body.passwordrepeat);
+    const passward= req.body.passward;
+    const confirmpassward= req.body.passwordrepeat;
+    if(passward===confirmpassward){
+
+      const registerEmployee = new Register({
+        fullname: req.body.fullname,
+        email:req.body.email,
+        passward:passward,
+        // confirmpassward: req.body.passwordrepeat
+        confirmpassward: confirmpassward
+// mene sara data get ke liya hai
+      })
+      // ab data database me store krna hai
+     const registered = await registerEmployee.save();
+        res.status(201).render("index")
+
+    }
+    else{
+      res.send("passward are not  matching")
+    }
+  } catch (e) {
+    res.status(400).send(e);
+  }
 });
 
 app.listen(port, () => {

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+// creating document/schema
 const employeeSchema = new mongoose.Schema({
     fullname:{
         type:String,
