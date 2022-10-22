@@ -61,7 +61,7 @@ app.post("/register", async (req, res) => {
     }
   } catch (e) {
     res.status(400).send(e);
-  }
+  } 
 });
 
 app.post("/login", async (req, res) => {
@@ -71,7 +71,9 @@ app.post("/login", async (req, res) => {
     const useremail = await Register.findOne({ email: email });
     // res.send(useremail.passward);
     // console.log(useremail);
-    if(useremail.passward === passward){
+    const isMatch = await bcrypt.compare(passward, useremail.passward);
+    // if(useremail.passward === passward){
+    if(isMatch){
       res.status(201).render("index");
     }
     else{
