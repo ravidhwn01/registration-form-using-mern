@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcryptjs")
 const app = express();
 const path = require("path");
 const hbs = require("hbs"); // for using partials
@@ -51,6 +52,7 @@ app.post("/register", async (req, res) => {
         confirmpassward: confirmpassward,
         // mene sara data get ke liya hai
       });
+      // passward hash(passward store(save) hone se pahle passward encrypt krna hai)
       // ab data database me store krna hai
       const registered = await registerEmployee.save();
       res.status(201).render("index");
@@ -77,7 +79,7 @@ app.post("/login", async (req, res) => {
     } 
   } catch (e) {
     res.status(400).send("invalid login details");
-  }
+  } 
 });
 app.listen(port, () => {
   console.log(`server is running at port ${port}`);
